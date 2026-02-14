@@ -3,6 +3,10 @@ import 'package:goldy/core/constant/App_colors.dart';
 import 'package:goldy/core/constant/App_strings.dart';
 import 'package:goldy/core/widgets/custom_boutton.dart';
 
+
+
+import '../routing/routes.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -15,10 +19,9 @@ class HomeScreen extends StatelessWidget {
         title: Center(
           child: Text(
             "Silver & Gold ",
-
             style: TextStyle(
-              color: const Color.fromARGB(255, 255, 255, 255),
-              fontSize: 20,
+              color: AppColors.textColor,
+              fontSize: 24,
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -29,15 +32,21 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CustomBoutton(
-              color: AppColors.primaryColor,
+              textColor: AppColors.goldTextColor,
+              color:AppColors.goldButtonGradient ,
               text: AppStrings.gold,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, AppRoutes.goldScreen);
+              },
             ),
             SizedBox(height: 12),
             CustomBoutton(
-              color: AppColors.secondaryColor,
-              text: AppStrings.silver,
-              onPressed: () {},
+              textColor: AppColors.silverTextColor,
+              color: AppColors.silverButtonGradient,
+              text: AppStrings.silver ,
+              onPressed: () {
+               Navigator.pushNamed(context, AppRoutes.silverScreen);
+              },
             ),
           ],
         ),

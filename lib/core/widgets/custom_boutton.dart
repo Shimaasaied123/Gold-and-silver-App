@@ -6,9 +6,11 @@ class CustomBoutton extends StatelessWidget {
     required this.color,
     required this.text,
     this.onPressed,
+    required this.textColor,
   });
-  final Color color;
+  final Gradient color;
   final String text;
+  final Color textColor;
   final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
@@ -16,12 +18,19 @@ class CustomBoutton extends StatelessWidget {
       height: 50,
       width: MediaQuery.of(context).size.width / 2,
       decoration: BoxDecoration(
-        color: color,
+        gradient: color,
         borderRadius: BorderRadius.circular(10),
       ),
       child: TextButton(
         onPressed: onPressed,
-        child: Text(text, style: TextStyle(color: Colors.white, fontSize: 16)),
+        child: Text(
+          text,
+          style: TextStyle(
+            color: textColor,
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
       ),
     );
   }
